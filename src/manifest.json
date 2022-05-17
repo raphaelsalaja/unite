@@ -1,0 +1,40 @@
+{
+	"manifest_version": 3,
+	"name": "Unite",
+	"version": "0.0.1",
+	"offline_enabled": true,
+	"author": "raf_",
+	"description": "Unites all the functions and actions you would ever need",
+	"action": {
+		"icons": {
+			"16": "assets/icon.png",
+			"48": "assets/icon.png",
+			"128": "assets/icon.png"
+		},
+		"default_title": "Open Unite"
+	},
+	"icons": {
+		"16": "assets/icon.png",
+		"48": "assets/icon.png",
+		"128": "assets/icon.png"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"run_at": "document_end",
+			"js": ["libs/jquery.js", "libs/jquery-ui.js", "libs/svg-inject.js", "content.js"],
+			"css": ["content.css", "libs/jquery-ui.css"]
+		}
+	],
+	"web_accessible_resources": [
+		{
+			"resources": ["assets/*", "content.html"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"permissions": ["tabs", "bookmarks", "activeTab", "browsingData", "history", "scripting", "search"],
+	"host_permissions": ["https://www.googleapis.com/*", "https://gstatic.com/*", "*://*/*"]
+}
