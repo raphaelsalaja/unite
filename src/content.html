@@ -1,27 +1,53 @@
 <html>
 	<head>
 		<script src="libs/svg-inject.js"></script>
+		<script src="libs/jquery-select2.js"></script>
+		<script src="libs/jquery-ui.js"></script>
+		<script src="libs/jquery.js"></script>
 	</head>
 	<body>
 		<div id="unite-extension" class="unite-hidden unite-extension">
 			<div id="unite-container">
 				<div id="unite">
-					<div id="unite-header">
-						<div id="unite-flex-topbar">
-							<div id="topbar-items">
-								<div id="unite-icon"><img id="logo" src="" /></div>
-							</div>
-							<div id="topbar-items">
-								<div id="unite-icon"><img id="links" src="" /></div>
-								<div id="unite-icon"><img id="settings" src="" /></div>
-								<div id="unite-icon"><img id="close" src="" /></div>
-							</div>
-						</div>
+					<div id="unite-search">
+						<input type="text" id="unite-search-box" placeholder="Type to search for an action..." />
+						<div id="unite-search-contents"></div>
 					</div>
-					<div id="unite-search"></div>
-					<div id="unite-select-list"></div>
-					<div id="unite-footer">
-						<!-- <div id="unite-results-amount"></div> -->
+					<div id="unite-navigation-guide">
+						<div id="unite-open-unite">
+							<div id="key-container">
+								<div id="key-badge">
+									<div id="key-text">CTRL</div>
+								</div>
+							</div>
+							<div id="key-container">
+								<div id="key-badge">
+									<div id="key-text">K</div>
+								</div>
+							</div>
+							<div id="unite-paragraph">Open Unite</div>
+						</div>
+						<div id="unite-navigate">
+							<div id="key-container">
+								<div id="key-badge">
+									<div id="key-text" class="symbol">↓</div>
+								</div>
+							</div>
+							<div id="key-container">
+								<div id="key-badge">
+									<div id="key-text" class="symbol">↑</div>
+								</div>
+							</div>
+							<div id="unite-paragraph">Navigate</div>
+						</div>
+						<div id="unite-execute">
+							<div id="key-container">
+								<div id="key-badge">
+									<div id="key-text" class="symbol">↵</div>
+								</div>
+							</div>
+							<div id="unite-paragraph">Execute Action</div>
+						</div>
 					</div>
 				</div>
 			</div>

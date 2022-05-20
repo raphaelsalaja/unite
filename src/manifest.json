@@ -25,8 +25,8 @@
 		{
 			"matches": ["<all_urls>"],
 			"run_at": "document_end",
-			"js": ["libs/jquery.js", "libs/jquery-ui.js", "libs/svg-inject.js", "content.js"],
-			"css": ["content.css", "libs/jquery-ui.css"]
+			"js": ["libs/jquery.js", "libs/jquery-ui.js", "libs/svg-inject.js", "libs/jquery-select2.js", "content.js"],
+			"css": ["libs/jquery-ui.css", "libs/jquery-select2.css", "content.css"]
 		}
 	],
 	"web_accessible_resources": [
