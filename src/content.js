@@ -9,8 +9,13 @@ $(document).ready(() => {
 	function open_unite() {
 		unite_open = true
 		console.log('open_unite')
-
+		$('#unite-extension').fadeIn()
 		$('#unite-extension').removeClass('unite-hidden')
+	}
+	function close_unite() {
+		unite_open = false
+		$('#unite-extension').addClass('unite-hidden')
+		$('#unite-extension').fadeOut()
 	}
 
 	// 	$('#unite-extension #logo ').attr('src', chrome.runtime.getURL('assets/layers.svg'))
@@ -26,10 +31,6 @@ $(document).ready(() => {
 	// 	$('#search').selectize({
 	// 		sortField: 'text',
 	// 	})
-	// }
-	// function close_unite() {
-	// 	unite_open = false
-	// 	$('#unite-extension').addClass('unite-hidden')
 	// }
 
 	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -48,4 +49,15 @@ $(document).ready(() => {
 		}
 		return true
 	})
+	chrome.runtime.sendMessage({request: 'get-quick-commands'}, (response) => {
+		quick_commands = response.quick_commands
+	})
 })
+
+//   $('#field').autocomplete({
+// 		source: countries_starting_with_A,
+// 		minLength: 0,
+// 		close: function (event, ui) {
+// 			$input.autocomplete('widget').show()
+// 		},
+//   })

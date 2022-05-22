@@ -219,6 +219,7 @@
 	order: 0;
 	align-self: stretch;
 	flex-grow: 1;
+	overflow: hidden;
 }
 .unite-extension #unite-search-box {
 	/* Search Box */
@@ -244,13 +245,16 @@
 	order: 0;
 	align-self: stretch;
 	flex-grow: 0;
+
+	font-family: 'Proxima Nova Bold';
+	color: #445275;
 }
 .unite-extension input {
 	width: 100%;
 	height: 100%;
 	border: none;
 }
-::-webkit-input-placeholder {
+.unite-extension ::-webkit-input-placeholder {
 	font-family: 'Proxima Nova Bold';
 	color: #445275;
 }
@@ -268,8 +272,213 @@
 	align-items: flex-start;
 	padding: 0px;
 
-	width: 576px;
+	width: 100%;
 	height: 484px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 1;
+	align-self: stretch;
+	flex-grow: 1;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.unite-extension #unite-search-results {
+	/* Search Result */
+	width: 100%;
+	height: 72px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+.unite-extension #unite-search-results-container {
+	/* Container */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 16px;
+	gap: 8px;
+	width: fit-content;
+	height: fit-content;
+	left: 0px;
+	top: 0px;
+}
+.unite-extension #unite-search-results-icon-container {
+	/* Icon Container */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+
+	width: 24px;
+	height: 24px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+.unite-extension #unite-search-results-placeholder {
+	/* Placeholder Icon */
+
+	width: 24px;
+	height: 24px;
+
+	/* HUE 73/SURFACE */
+
+	background: #f1ffbf;
+	border-radius: 8px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 1;
+}
+.unite-extension #unite-search-results-text-container {
+	/* Text Container */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0px;
+
+	width: 512px;
+	height: 40px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 1;
+	align-self: stretch;
+	flex-grow: 1;
+}
+.unite-extension #unite-search-results-text-main {
+	/* violette.org */
+
+	width: 512px;
+	height: 20px;
+
+	font-family: 'Proxima Nova';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 16px;
+	display: flex;
+	align-items: center;
+
+	color: #000000;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 1;
+}
+.unite-extension #unite-search-results-details-container {
+	/* Details */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 8px;
+
+	width: 512px;
+	height: 20px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 1;
+	align-self: stretch;
+	flex-grow: 1;
+}
+.unite-extension #unite-search-results-results-badge {
+	/* Result Badge */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 2px 6px;
+
+	width: fit-content;
+	height: fit-content;
+
+	/* HUE 73/SURFACE */
+
+	background: #f1ffbf;
+	border-radius: 8px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+.unite-extension #unite-search-results-results-badge-text {
+	/* Tab */
+
+	width: 22px;
+	height: 16px;
+
+	font-family: 'Proxima Nova';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 15px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	/* HUE 73/TEXT */
+
+	color: #334500;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 0;
+}
+.unite-extension #unite-search-results-details-text {
+	/* https://warren.info */
+
+	width: 470px;
+	height: 20px;
+
+	font-family: 'Proxima Nova';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 16px;
+	display: flex;
+	align-items: center;
+
+	color: #000000;
 
 	/* Inside auto layout */
 
