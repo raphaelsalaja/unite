@@ -296,6 +296,13 @@
 	order: 0;
 	flex-grow: 0;
 }
+.unite-search-results-hover {
+	/* Container */
+
+	/* Auto layout */
+	background-color: rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+}
 .unite-extension #unite-search-results-container {
 	/* Container */
 
@@ -324,6 +331,25 @@
 
 	width: 24px;
 	height: 24px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+.unite-extension #unite-search-results-icon {
+	/* Icon Container */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+
+	max-width: -webkit-fill-available;
 
 	/* Inside auto layout */
 
@@ -372,7 +398,7 @@
 .unite-extension #unite-search-results-text-main {
 	/* violette.org */
 
-	width: 512px;
+	max-width: 256px;
 	height: 20px;
 
 	font-family: 'Proxima Nova';
@@ -382,6 +408,11 @@
 	line-height: 16px;
 	display: flex;
 	align-items: center;
+
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 
 	color: #000000;
 
@@ -441,9 +472,6 @@
 .unite-extension #unite-search-results-results-badge-text {
 	/* Tab */
 
-	width: 22px;
-	height: 16px;
-
 	font-family: 'Proxima Nova';
 	font-style: normal;
 	font-weight: 700;
@@ -467,7 +495,7 @@
 .unite-extension #unite-search-results-details-text {
 	/* https://warren.info */
 
-	width: 470px;
+	width: 180px;
 	height: 20px;
 
 	font-family: 'Proxima Nova';
@@ -479,6 +507,10 @@
 	align-items: center;
 
 	color: #000000;
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 
 	/* Inside auto layout */
 
