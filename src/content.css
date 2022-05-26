@@ -339,10 +339,6 @@
 	flex-grow: 0;
 }
 .unite-extension #unite-search-results-icon {
-	/* Icon Container */
-
-	/* Auto layout */
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -351,12 +347,11 @@
 
 	max-width: -webkit-fill-available;
 
-	/* Inside auto layout */
-
 	flex: none;
 	order: 0;
 	flex-grow: 0;
 }
+
 .unite-extension #unite-search-results-placeholder {
 	/* Placeholder Icon */
 

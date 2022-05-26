@@ -4,18 +4,31 @@ const set_command_list = () => {
 	get_active_tab().then((response) => {
 		quick_commands = []
 		quick_commands = [
-			{icon: '', title: 'Open in new tab', type: 'Action', description: 'Open the current page in a new tab', shortcut: 'Ctrl + T', action: 'new-tab'},
-			{icon: '', title: 'Open in new window', type: 'Action', description: 'Open the current page in a new window', shortcut: 'Ctrl + W', action: 'new-window'},
-			{icon: '', title: 'Open in incognito window', type: 'Action', description: 'Open the current page in an incognito window', shortcut: 'Ctrl + Shift + W', action: 'incognito-window'},
-			{icon: '', title: 'Next Tab', type: 'Action', description: 'Go to the next tab', shortcut: 'Ctrl + Tab', action: 'next-tab'},
-			{icon: '', title: 'Previous Tab', type: 'Action', description: 'Go to the previous tab', shortcut: 'Ctrl + Shift + Tab', action: 'previous-tab'},
-			{icon: '', title: 'Close Tab', type: 'Action', description: 'Close the current tab', shortcut: 'Ctrl + W', action: 'close-tab'},
-			{icon: '', title: 'Close Window', type: 'Action', description: 'Close the current window', shortcut: 'Ctrl + Shift + W', action: 'close-window'},
-			{icon: '', title: 'Add to Bookmarks', type: 'Action', description: 'Add the current page to bookmarks', shortcut: 'Ctrl + D', action: 'add-bookmark'},
-			{icon: '', title: 'Clear Cache', type: 'Action', description: 'Clear the cache', shortcut: 'Ctrl + Shift + C', action: 'clear-cache'},
-			{icon: '', title: 'Clear History', type: 'Action', description: 'Clear the history', shortcut: 'Ctrl + Shift + H', action: 'clear-history'},
-			{icon: '', title: 'Clear Cookies', type: 'Action', description: 'Clear the cookies', shortcut: 'Ctrl + Shift + K', action: 'clear-cookies'},
-			{icon: '', title: 'Clear All', type: 'Action', description: 'Clear all data', shortcut: 'Ctrl + Shift + A', action: 'clear-all'},
+			{emoji: true, icon: '🚀', title: 'Open in new tab', type: 'Action', description: 'Open the current page in a new tab', shortcut: 'Ctrl + T', action: 'new-tab'},
+			{emoji: true, icon: '🚀', title: 'Open in new window', type: 'Action', description: 'Open the current page in a new window', shortcut: 'Ctrl + W', action: 'new-window'},
+			{emoji: true, icon: '🤫', title: 'Open in incognito window', type: 'Action', description: 'Open the current page in an incognito window', shortcut: 'Ctrl + Shift + W', action: 'incognito-window'},
+			{emoji: true, icon: '➡️', title: 'Next Tab', type: 'Action', description: 'Go to the next tab', shortcut: 'Ctrl + Tab', action: 'next-tab'},
+			{emoji: true, icon: '⬅️', title: 'Previous Tab', type: 'Action', description: 'Go to the previous tab', shortcut: 'Ctrl + Shift + Tab', action: 'previous-tab'},
+			{emoji: true, icon: '🗡️', title: 'Close Tab', type: 'Action', description: 'Close the current tab', shortcut: 'Ctrl + W', action: 'close-tab'},
+			{emoji: true, icon: '🗡️', title: 'Close Window', type: 'Action', description: 'Close the current window', shortcut: 'Ctrl + Shift + W', action: 'close-window'},
+			{emoji: true, icon: '🧹', title: 'Clear Cache', type: 'Action', description: 'Clear the cache', shortcut: 'Ctrl + Shift + C', action: 'clear-cache'},
+			{emoji: true, icon: '🧹', title: 'Clear History', type: 'Action', description: 'Clear the history', shortcut: 'Ctrl + Shift + H', action: 'clear-history'},
+			{emoji: true, icon: '🧹', title: 'Clear Cookies', type: 'Action', description: 'Clear the cookies', shortcut: 'Ctrl + Shift + K', action: 'clear-cookies'},
+			{emoji: true, icon: '🧹', title: 'Clear All', type: 'Action', description: 'Clear all data', shortcut: 'Ctrl + Shift + A', action: 'clear-all'},
+			{emoji: true, icon: '🔓', title: 'Open Settings', type: 'Action', description: 'Open the settings page', shortcut: 'Ctrl + Shift + S', action: 'open-settings'},
+			{emoji: true, icon: '📂', title: 'Open Downloads', type: 'Action', description: 'Open the downloads page', shortcut: 'Ctrl + Shift + D', action: 'open-downloads'},
+			{emoji: true, icon: '📖', title: 'Open Bookmarks', type: 'Action', description: 'Open the bookmarks page', shortcut: 'Ctrl + Shift + B', action: 'open-bookmarks'},
+			{emoji: true, icon: '📜', title: 'Open History', type: 'Action', description: 'Open the history page', shortcut: 'Ctrl + Shift + H', action: 'open-history'},
+			{emoji: true, icon: '📂', title: 'Open Extensions', type: 'Action', description: 'Open the extensions page', shortcut: 'Ctrl + Shift + E', action: 'open-extensions'},
+			{emoji: true, icon: '🔃', title: 'Reload', type: 'Action', description: 'Reload the current page', shortcut: 'Ctrl + R', action: 'reload'},
+			{emoji: true, icon: '🔃', title: 'Reload All', type: 'Action', description: 'Reload all the tabs', shortcut: 'Ctrl + Shift + R', action: 'reload-all'},
+			{emoji: true, icon: '🔍', title: 'Zoom In', type: 'Action', description: 'Zoom in', shortcut: 'Ctrl + +', action: 'zoom-in'},
+			{emoji: true, icon: '🔍', title: 'Zoom Out', type: 'Action', description: 'Zoom out', shortcut: 'Ctrl + -', action: 'zoom-out'},
+			{emoji: true, icon: '🔍', title: 'Zoom Reset', type: 'Action', description: 'Reset zoom', shortcut: 'Ctrl + 0', action: 'zoom-reset'},
+			{emoji: true, icon: '📌', title: 'Pin Tab', type: 'Action', description: 'Pin/Unpin the current tab', shortcut: 'Ctrl + Shift + P', action: 'pin-tab'},
+			{emoji: true, icon: '📌', title: 'Pin All Tabs', type: 'Action', description: 'Pin/Unpin all tabs', shortcut: 'Ctrl + Shift + P', action: 'pin-all-tabs'},
+			{emoji: true, icon: '🔇', title: 'Mute Tab', type: 'Action', description: 'Mute/Unmute the current tab', shortcut: 'Ctrl + Shift + M', action: 'mute-tab'},
+			{emoji: true, icon: '🔇', title: 'Mute All', type: 'Action', description: 'Mute/Unmute all the tabs', shortcut: 'Ctrl + Shift + Shift + M', action: 'mute-all'},
 		]
 		get_tabs()
 	})
@@ -47,6 +60,7 @@ chrome.action.onClicked.addListener((tab) => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	switch (message.request) {
 		case 'get-quick-commands':
+			set_command_list()
 			sendResponse({quick_commands: quick_commands})
 			break
 		case 'switch-tab':
@@ -57,13 +71,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			})
 
 			break
+		case 'new-tab':
+			chrome.tabs.create({url: 'chrome://newtab'})
+			break
 		case 'close-tab':
 			chrome.tabs.getCurrent(function (tab) {
 				chrome.tabs.remove(tab.id, function () {})
 			})
-			break
-		case 'new-tab':
-			chrome.tabs.create({url: 'chrome://newtab'})
 			break
 		case 'new-window':
 			chrome.windows.create({url: 'chrome://newtab'})
@@ -90,14 +104,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		case 'close-window':
 			chrome.windows.getCurrent(function (window) {
 				chrome.windows.remove(window.id, function () {})
-			})
-			break
-		case 'add-bookmark':
-			chrome.tabs.getCurrent(function (tab) {
-				chrome.bookmarks.create({
-					title: tab.title,
-					url: tab.url,
-				})
 			})
 			break
 		case 'clear-cache':
@@ -197,6 +203,68 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			break
 		case 'open-settings':
 			chrome.runtime.openOptionsPage()
+			break
+		case 'open-dowloands':
+			chrome.downloads.showDefaultFolder()
+			break
+		case 'open-bookmarks':
+			chrome.bookmarks.openTree()
+			break
+		case 'open-history':
+			chrome.history.openEntry()
+			break
+		case 'open-extensions':
+			chrome.management.openExtensions()
+			break
+		case 'reload':
+			chrome.tabs.reload()
+			break
+		case 'reload-all':
+			chrome.tabs.query({}, function (tabs) {
+				tabs.forEach(function (tab) {
+					chrome.tabs.reload(tab.id)
+				})
+			})
+			break
+		case 'zoom-in':
+			chrome.tabs.getZoom(function (zoom) {
+				chrome.tabs.setZoom(zoom + 0.1)
+			})
+			break
+		case 'zoom-out':
+			chrome.tabs.getZoom(function (zoom) {
+				chrome.tabs.setZoom(zoom - 0.1)
+			})
+			break
+		case 'zoom-reset':
+			chrome.tabs.getZoom(function (zoom) {
+				chrome.tabs.setZoom(1)
+			})
+			break
+		case 'pin-tab':
+			//if unpinned, pin, else unpin
+			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+				chrome.tabs.update(tabs[0].id, {pinned: !tabs[0].pinned})
+			})
+			break
+		case 'pin-all':
+			chrome.tabs.query({}, function (tabs) {
+				tabs.forEach(function (tab) {
+					chrome.tabs.update(tab.id, {pinned: !tab.pinned})
+				})
+			})
+			break
+		case 'mute-tab':
+			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+				chrome.tabs.update(tabs[0].id, {muted: !tabs[0].mutedInfo.muted})
+			})
+			break
+		case 'mute-all':
+			chrome.tabs.query({}, function (tabs) {
+				tabs.forEach(function (tab) {
+					chrome.tabs.update(tab.id, {muted: !tab.mutedInfo.muted})
+				})
+			})
 			break
 	}
 })
