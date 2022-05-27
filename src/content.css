@@ -153,6 +153,17 @@
 	height: 100%;
 	z-index: 9999;
 }
+.unite-extension #unite-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	background: var(--overlay-color);
+
+	z-index: var(--z-index-back);
+}
 .unite-extension #unite-container {
 	display: flex;
 	flex-direction: column;
@@ -169,7 +180,7 @@
 
 	background: var(--overlay-color);
 
-	z-index: var(--z-index-middle);
+	z-index: var(--z-index-back);
 }
 .unite-extension #unite {
 	/* Unite */
@@ -313,7 +324,7 @@
 	align-items: flex-start;
 	padding: 16px;
 	gap: 8px;
-	width: fit-content;
+	width: auto;
 	height: fit-content;
 	left: 0px;
 	top: 0px;
@@ -351,7 +362,6 @@
 	order: 0;
 	flex-grow: 0;
 }
-
 .unite-extension #unite-search-results-placeholder {
 	/* Placeholder Icon */
 
@@ -379,8 +389,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	padding: 0px;
-
-	width: 512px;
+	max-width: 100%;
 	height: 40px;
 
 	/* Inside auto layout */
@@ -429,13 +438,34 @@
 	padding: 0px;
 	gap: 8px;
 
-	width: 512px;
+	width: 100%;
 	height: 20px;
 
 	/* Inside auto layout */
 
 	flex: none;
 	order: 1;
+	align-self: stretch;
+	flex-grow: 1;
+}
+.unite-extension #unite-search-results-shortcut-container {
+	/* Command Container */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 10px;
+	gap: 10px;
+
+	height: fit-content;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 2;
 	align-self: stretch;
 	flex-grow: 1;
 }
@@ -697,4 +727,69 @@
 	margin: 8px;
 	display: block;
 	fill: '#0243EC';
+}
+
+.key-container {
+	/* Key */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+
+	width: fit-content;
+	height: fit-content;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+.key-badge {
+	/* Result Badge */
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 2px 6px;
+
+	width: fit-content;
+	height: fit-content;
+
+	/* NEUTRALS/SHAPE-DISABLED */
+
+	background: #b8c4e5;
+	border-radius: 8px;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
+.key-text {
+	/* CTRL */
+	width: fit-content;
+	height: fit-content;
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	/* NEUTRALS/SHAPE-SECONDARY-HOVER */
+
+	font-family: 'Inter-ExtraBold';
+	color: #333e5a;
+
+	/* Inside auto layout */
+
+	flex: none;
+	order: 0;
+	flex-grow: 0;
 }

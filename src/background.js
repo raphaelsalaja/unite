@@ -22,7 +22,7 @@ const set_command_list = () => {
 			{emoji: true, icon: '📂', title: 'Open Extensions', type: 'Action', description: 'Open the extensions page', shortcut: 'Ctrl + Shift + E', action: 'open-extensions'},
 			{emoji: true, icon: '🔃', title: 'Reload', type: 'Action', description: 'Reload the current page', shortcut: 'Ctrl + R', action: 'reload'},
 			{emoji: true, icon: '🔃', title: 'Reload All', type: 'Action', description: 'Reload all the tabs', shortcut: 'Ctrl + Shift + R', action: 'reload-all'},
-			{emoji: true, icon: '🔍', title: 'Zoom In', type: 'Action', description: 'Zoom in', shortcut: 'Ctrl + +', action: 'zoom-in'},
+			{emoji: true, icon: '🔍', title: 'Zoom In', type: 'Action', description: 'Zoom in', shortcut: 'Ctrl + plus', action: 'zoom-in'},
 			{emoji: true, icon: '🔍', title: 'Zoom Out', type: 'Action', description: 'Zoom out', shortcut: 'Ctrl + -', action: 'zoom-out'},
 			{emoji: true, icon: '🔍', title: 'Zoom Reset', type: 'Action', description: 'Reset zoom', shortcut: 'Ctrl + 0', action: 'zoom-reset'},
 			{emoji: true, icon: '📌', title: 'Pin Tab', type: 'Action', description: 'Pin/Unpin the current tab', shortcut: 'Ctrl + Shift + P', action: 'pin-tab'},
@@ -60,7 +60,6 @@ chrome.action.onClicked.addListener((tab) => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	switch (message.request) {
 		case 'get-quick-commands':
-			set_command_list()
 			sendResponse({quick_commands: quick_commands})
 			break
 		case 'switch-tab':
