@@ -312,3 +312,18 @@ chrome.runtime.onInstalled.addListener((object) => {
 		}
 	)
 })
+chrome.commands.onCommand.addListener((command) => {
+	if (command == 'open-unite') {
+		console.log(response.url)
+		get_active_tab().then((response) => {
+			if (!response.url.includes('chrome://') && !response.url.includes('chrome.google.com')) {
+				console.log(response.url)
+				chrome.tabs.sendMessage(response.id, {request: 'open-unite'}, function (response) {})
+			}
+		})
+	}
+})
+// on tab updated
+chrome.tabs.onCreated.addListener((tab) => set_command_list())
+chrome.tabs.onRemoved.addListener((tabId, changeInfo) => set_command_list())
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => set_command_list())

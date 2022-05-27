@@ -35,6 +35,14 @@
 			"matches": ["<all_urls>"]
 		}
 	],
+	"commands": {
+		"open-unite": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+U"
+			},
+			"description": "Open Unite"
+		}
+	},
 	"permissions": ["tabs", "bookmarks", "activeTab", "browsingData", "history", "scripting", "search"],
 	"host_permissions": ["https://www.googleapis.com/*", "https://gstatic.com/*", "*://*/*"]
 }

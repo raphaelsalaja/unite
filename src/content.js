@@ -8,21 +8,23 @@ $(document).ready(() => {
 	function open_unite() {
 		unite_open = true
 		set_command_list()
-		console.log('open_unite')
 		$('#unite-extension').removeClass('unite-hidden')
-		$('#unite-extension').fadeIn()
 		$('#unite-extension #unite-search-box').focus()
 		$('#unite-extension #unite-search-box').attr('autocomplete', 'off')
 	}
 	function close_unite() {
 		unite_open = false
-		$('#unite-extension').addClass('unite-hidden')
 		clear_command_list()
+		$('#unite-extension').addClass('unite-hidden')
 	}
 	function set_command_list() {
 		chrome.runtime.sendMessage({request: 'get-quick-commands'}, (response) => {
 			for (let i = 0; i < response.quick_commands.length; i++) {
 				let quick_command = response.quick_commands[i]
+				let badge_class = quick_command.type.toLowerCase()
+				if (badge_class === 'tabs') {
+					badge_class = 'tab'
+				}
 				let $unite_search_results = $('<div>', {
 					'id': 'unite-search-results',
 					'data-id': i,
@@ -46,8 +48,10 @@ $(document).ready(() => {
 						id: 'unite-search-results-icon',
 					})
 				}
+
 				let $unite_search_results_placeholder = $('<div>', {
 					id: 'unite-search-results-placeholder',
+					class: badge_class,
 				})
 				let $unite_search_results_text_container = $('<div>', {
 					id: 'unite-search-results-text-container',
@@ -59,8 +63,10 @@ $(document).ready(() => {
 				let $unite_search_results_details_container = $('<div>', {
 					id: 'unite-search-results-details-container',
 				})
+
 				let $unite_search_results_results_badge = $('<div>', {
 					id: 'unite-search-results-results-badge',
+					class: badge_class,
 				})
 				let $unite_search_results_results_badge_text = $('<div>', {
 					id: 'unite-search-results-results-badge-text',
