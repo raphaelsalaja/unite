@@ -1,5 +1,4 @@
 let quick_commands = []
-
 const set_command_list = () => {
 	get_active_tab().then((response) => {
 		quick_commands = []
@@ -53,7 +52,6 @@ const get_tabs = () => {
 const get_active_tab = async () => {
 	return await chrome.tabs.query({active: true, currentWindow: true})
 }
-
 chrome.action.onClicked.addListener((tab) => {
 	chrome.tabs.sendMessage(tab.id, {message: 'open-unite'}, function (response) {})
 })

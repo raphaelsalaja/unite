@@ -5,14 +5,13 @@ $(document).ready(() => {
 	$.get(chrome.runtime.getURL('/content.html'), (data) => {
 		$(data).appendTo('body')
 	})
-
 	function open_unite() {
 		unite_open = true
 		set_command_list()
 		console.log('open_unite')
 		$('#unite-extension').removeClass('unite-hidden')
+		$('#unite-extension').fadeIn()
 		$('#unite-extension #unite-search-box').focus()
-		// disable auto-complete dropdown in search bar
 		$('#unite-extension #unite-search-box').attr('autocomplete', 'off')
 	}
 	function close_unite() {
@@ -161,8 +160,9 @@ $(document).ready(() => {
 					})
 			}
 		})
+		// hover the first result
+		$('#unite-search-contents').children().first().addClass('unite-search-results-hover')
 	}
-
 	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		switch (request.message) {
 			case 'open-unite':

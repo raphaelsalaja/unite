@@ -296,6 +296,17 @@
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+.unite-extension #unite-search-contents ::-webkit-scrollbar {
+	width: '8px';
+	height: '0px';
+}
+.unite-extension #unite-search-contents ::-webkit-scrollbar-track .unite-extension #unite-search-contents ::-webkit-scrollbar-thumb {
+	border-radius: '4px';
+	background-color: transparent;
+}
+.unite-extension #unite-search-contents ::-webkit-scrollbar-thumb:hover {
+	background: '#fff';
+}
 .unite-extension #unite-search-results {
 	/* Search Result */
 	width: 100%;
@@ -728,7 +739,6 @@
 	display: block;
 	fill: '#0243EC';
 }
-
 .key-container {
 	/* Key */
 
