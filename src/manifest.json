@@ -38,7 +38,7 @@
 	"commands": {
 		"open-unite": {
 			"suggested_key": {
-				"default": "Ctrl+Shift+U"
+				"default": "Ctrl+Shift+F"
 			},
 			"description": "Open Unite"
 		}

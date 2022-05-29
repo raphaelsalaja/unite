@@ -22,8 +22,9 @@ $(document).ready(() => {
 			for (let i = 0; i < response.quick_commands.length; i++) {
 				let quick_command = response.quick_commands[i]
 				let badge_class = quick_command.type.toLowerCase()
-				if (badge_class === 'tabs') {
-					badge_class = 'tab'
+				// if it ends in s remove the s
+				if (badge_class.endsWith('s')) {
+					badge_class = badge_class.substring(0, badge_class.length - 1)
 				}
 				let $unite_search_results = $('<div>', {
 					'id': 'unite-search-results',
@@ -48,7 +49,6 @@ $(document).ready(() => {
 						id: 'unite-search-results-icon',
 					})
 				}
-
 				let $unite_search_results_placeholder = $('<div>', {
 					id: 'unite-search-results-placeholder',
 					class: badge_class,
@@ -63,7 +63,6 @@ $(document).ready(() => {
 				let $unite_search_results_details_container = $('<div>', {
 					id: 'unite-search-results-details-container',
 				})
-
 				let $unite_search_results_results_badge = $('<div>', {
 					id: 'unite-search-results-results-badge',
 					class: badge_class,
@@ -79,7 +78,6 @@ $(document).ready(() => {
 				let $unite_search_results_shortcut_container = $('<div>', {
 					id: 'unite-search-results-shortcut-container',
 				})
-
 				if (quick_command.shortcut) {
 					quick_command.shortcut = quick_command.shortcut.replace(/\s/g, '')
 					let shortcut_array = quick_command.shortcut.split('+')
@@ -107,14 +105,12 @@ $(document).ready(() => {
 						$unite_search_results_shortcut_container.append($unite_search_results_shortcut_key_container)
 					}
 				}
-
 				if (quick_command.icon != '') {
 					$unite_search_results_icon_container.append($unite_search_results_icon)
 					$unite_search_results_icon.attr('src', quick_command.icon)
 				} else {
 					$unite_search_results_icon_container.append($unite_search_results_placeholder)
 				}
-
 				$unite_search_results_results_badge.append($unite_search_results_results_badge_text)
 				$unite_search_results_details_container.append($unite_search_results_results_badge)
 				$unite_search_results_details_container.append($unite_search_results_details_text)
@@ -166,8 +162,19 @@ $(document).ready(() => {
 					})
 			}
 		})
-		// hover the first result
-		$('#unite-search-contents').children().first().addClass('unite-search-results-hover')
+		// get the first visible result and add the focus class
+		$('#unite-search-contents').each(function () {
+			// clear all hover classes
+			$(this).children().removeClass('unite-search-results-hover')
+			$(this)
+				.children()
+				.each(function () {
+					if ($(this).css('display') != 'none') {
+						$(this).addClass('unite-search-results-hover')
+						return false
+					}
+				})
+		})
 	}
 	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 		switch (request.message) {

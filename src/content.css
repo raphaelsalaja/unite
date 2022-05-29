@@ -9,6 +9,12 @@
 		--color-action-text: var(--color-light-action-text);
 		--color-bookmark: var(--color-light-bookmark);
 		--color-bookmark-text: var(--color-light-bookmark-text);
+		--color-support: var(--color-light-support);
+		--color-support-text: var(--color-light-support-text);
+		--color-quicklink: var(--color-light-quicklink);
+		--color-quicklink-text: var(--color-light-quicklink-text);
+		--color-tool: var(--color-light-tool);
+		--color-tool-text: var(--color-light-tool-text);
 		--color-key: var(--color-light-key);
 		--color-key-text: var(--color-light-key-text);
 		--color-text: var(--color-light-text);
@@ -29,6 +35,12 @@
 		--color-action-text: var(--color-dark-action-text);
 		--color-bookmark: var(--color-dark-bookmark);
 		--color-bookmark-text: var(--color-dark-bookmark-text);
+		--color-support: var(--color-dark-support);
+		--color-support-text: var(--color-dark-support-text);
+		--color-quicklink: var(--color-dark-quicklink);
+		--color-quicklink-text: var(--color-dark-quicklink-text);
+		--color-tool: var(--color-dark-tool);
+		--color-tool-text: var(--color-dark-tool-text);
 		--color-key: var(--color-dark-key);
 		--color-key-text: var(--color-dark-key-text);
 		--color-text: var(--color-dark-text);
@@ -55,6 +67,12 @@
 	--color-light-action-text: #ee1e34;
 	--color-light-bookmark: #004865;
 	--color-light-bookmark-text: #11b3f3;
+	--color-light-support: #480065;
+	--color-light-support-text: #9c11f3;
+	--color-dark-quicklink: #5b6500;
+	--color-dark-quicklink-text: #d9f311;
+	--color-dark-tool: #646464;
+	--color-dark-tool-text: #efefef;
 	--color-light-key: #4b4b4b;
 	--color-light-key-text: #e2e2e2;
 	--color-light-text: #cdcdcd;
@@ -71,6 +89,12 @@
 	--color-dark-action-text: #ee1e34;
 	--color-dark-bookmark: #004865;
 	--color-dark-bookmark-text: #11b3f3;
+	--color-dark-support: #480065;
+	--color-dark-support-text: #9c11f3;
+	--color-dark-quicklink: #5b6500;
+	--color-dark-quicklink-text: #d9f311;
+	--color-dark-tool: #646464;
+	--color-dark-tool-text: #efefef;
 	--color-dark-key: #4b4b4b;
 	--color-dark-key-text: #e2e2e2;
 	--color-dark-text: #cdcdcd;
@@ -172,6 +196,18 @@
 	color: var(--color-search-placeholder);
 }
 
+.unite-extension input {
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	outline: 0px;
+}
+
+.unite-extension input:focus {
+	outline: none;
+	border: none;
+}
+
 .unite-extension #unite-overlay {
 	position: absolute;
 	width: 100%;
@@ -251,6 +287,9 @@
 	width: 100%;
 	height: 64px;
 
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
 	border-bottom: 1px solid var(--color-border);
 
 	flex: none;
@@ -259,6 +298,7 @@
 	flex-grow: 0;
 
 	font-family: 'Proxima Nova Bold';
+	background: var(--color-background);
 	color: var(--color-search-placeholder);
 }
 
@@ -276,7 +316,7 @@
 	align-self: stretch;
 	flex-grow: 1;
 
-	overflow-y: scroll;
+	overflow-y: overlay;
 	overflow-x: hidden;
 }
 
@@ -295,7 +335,7 @@
 	align-items: flex-start;
 	padding: 16px;
 	gap: 16px;
-	width: auto;
+	width: 100%;
 	height: fit-content;
 	left: 0px;
 	top: 0px;
@@ -617,17 +657,6 @@
 	flex-grow: 0;
 }
 
-.unite-extension input {
-	width: 100%;
-	height: 100%;
-	border: none;
-}
-
-.unite-extension input:focus {
-	border: 0px;
-	outline: 0px;
-}
-
 .unite-hidden {
 	display: none;
 }
@@ -696,4 +725,16 @@
 .bookmark {
 	background: var(--color-bookmark);
 	color: var(--color-bookmark-text);
+}
+.support {
+	background: var(--color-support);
+	color: var(--color-support-text);
+}
+.quicklink {
+	background: var(--color-quicklink);
+	color: var(--color-quicklink-text);
+}
+.tool {
+	background: var(--color-tool);
+	color: var(--color-tool-text);
 }

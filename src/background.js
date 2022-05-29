@@ -28,6 +28,32 @@ const set_command_list = () => {
 			{emoji: true, icon: '📌', title: 'Pin All Tabs', type: 'Action', description: 'Pin/Unpin all tabs', shortcut: 'Ctrl + Shift + P', action: 'pin-all-tabs'},
 			{emoji: true, icon: '🔇', title: 'Mute Tab', type: 'Action', description: 'Mute/Unmute the current tab', shortcut: 'Ctrl + Shift + M', action: 'mute-tab'},
 			{emoji: true, icon: '🔇', title: 'Mute All', type: 'Action', description: 'Mute/Unmute all the tabs', shortcut: 'Ctrl + Shift + Shift + M', action: 'mute-all'},
+			{emoji: true, icon: '📈', title: 'Open Calculator', type: 'Tools', description: 'Open the calculator', shortcut: 'Ctrl + Shift + C', action: 'open-calculator'},
+			{emoji: true, icon: '🕰', title: 'Open Clock', type: 'Tools', description: 'Open the clock', shortcut: 'Ctrl + Shift + K', action: 'open-clock'},
+			{emoji: true, icon: '📅', title: 'Open Calendar', type: 'Tools', description: 'Open the calendar', shortcut: 'Ctrl + Shift + K', action: 'open-calendar'},
+			{emoji: true, icon: '🌡️', title: 'Open Weather', type: 'Tools', description: 'Get the weather', shortcut: 'Ctrl + Shift + W', action: 'weather'},
+			{emoji: true, icon: '📧', title: 'Open Gmail', type: 'Quicklinks', description: 'Open Gmail', shortcut: 'Ctrl + Shift + G', action: 'open-gmail'},
+			{emoji: true, icon: '📰', title: 'Open News', type: 'Quicklinks', description: 'Get the news', shortcut: 'Ctrl + Shift + N', action: 'news'},
+			{emoji: true, icon: '🗂️', title: 'Open Drive', type: 'Quicklinks', description: 'Open Drive', shortcut: 'Ctrl + Shift + D', action: 'open-drive'},
+			{emoji: true, icon: '📚', title: 'Open Docs', type: 'Quicklinks', description: 'Open Docs', shortcut: 'Ctrl + Shift + O', action: 'open-docs'},
+			{emoji: true, icon: '📋', title: 'Open Sheets', type: 'Quicklinks', description: 'Open Sheets', shortcut: 'Ctrl + Shift + S', action: 'open-sheets'},
+			{emoji: true, icon: '📊', title: 'Open Slides', type: 'Quicklinks', description: 'Open Slides', shortcut: 'Ctrl + Shift + L', action: 'open-slides'},
+			{emoji: true, icon: '🗺️', title: 'Open Maps', type: 'Quicklinks', description: 'Open Maps', shortcut: 'Ctrl + Shift + M', action: 'open-maps'},
+			{emoji: true, icon: '📺', title: 'Open YouTube', type: 'Quicklinks', description: 'Open YouTube', shortcut: 'Ctrl + Shift + Y', action: 'open-youtube'},
+			{emoji: true, icon: '📱', title: 'Open Facebook', type: 'Quicklinks', description: 'Open Facebook', shortcut: 'Ctrl + Shift + F', action: 'open-facebook'},
+			{emoji: true, icon: '🐦', title: 'Open Twitter', type: 'Quicklinks', description: 'Open Twitter', shortcut: 'Ctrl + Shift + T', action: 'open-twitter'},
+			{emoji: true, icon: '📷', title: 'Open Instagram', type: 'Quicklinks', description: 'Open Instagram', shortcut: 'Ctrl + Shift + I', action: 'open-instagram'},
+			{emoji: true, icon: '📧', title: 'Open LinkedIn', type: 'Quicklinks', description: 'Open LinkedIn', shortcut: 'Ctrl + Shift + L', action: 'open-linkedin'},
+			{emoji: true, icon: '📌', title: 'Open Pinterest', type: 'Quicklinks', description: 'Open Pinterest', shortcut: 'Ctrl + Shift + P', action: 'open-pinterest'},
+			{emoji: true, icon: '📰', title: 'Open Reddit', type: 'Quicklinks', description: 'Open Reddit', shortcut: 'Ctrl + Shift + R', action: 'open-reddit'},
+			{emoji: true, icon: '📷', title: 'Open Flickr', type: 'Quicklinks', description: 'Open Flickr', shortcut: 'Ctrl + Shift + F', action: 'open-flickr'},
+			{emoji: true, icon: '📌', title: 'Open Foursquare', type: 'Quicklinks', description: 'Open Foursquare', shortcut: 'Ctrl + Shift + Q', action: 'open-foursquare'},
+			{emoji: true, icon: '📷', title: 'Open Imgur', type: 'Quicklinks', description: 'Open Imgur', shortcut: 'Ctrl + Shift + I', action: 'open-imgur'},
+			{emoji: true, icon: '📰', title: 'Open Quora', type: 'Quicklinks', description: 'Open Quora', shortcut: 'Ctrl + Shift + Q', action: 'open-quora'},
+			{emoji: true, icon: '📰', title: 'Open Stackoverflow', type: 'Quicklinks', description: 'Open Stackoverflow', shortcut: 'Ctrl + Shift + S', action: 'open-stackoverflow'},
+			{emoji: true, icon: '📦', title: 'Open GitHub', type: 'Quicklinks', description: 'Open GitHub', shortcut: 'Ctrl + Shift + G', action: 'open-github'},
+			{emoji: true, icon: '💵', title: 'Buy me a coffee', type: 'Support', description: 'Buy me a coffee', shortcut: 'Ctrl + Shift + B', action: 'buy-me-a-coffee'},
+			{emoji: true, icon: '🔗', title: 'Link to my Linktree', type: 'Support', description: 'Link to my Linktree', shortcut: 'Ctrl + Shift + L', action: 'link-to-my-linktree'},
 		]
 		get_tabs()
 	})
@@ -239,7 +265,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			})
 			break
 		case 'pin-tab':
-			//if unpinned, pin, else unpin
 			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 				chrome.tabs.update(tabs[0].id, {pinned: !tabs[0].pinned})
 			})
@@ -263,10 +288,83 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 				})
 			})
 			break
+		case 'open-calculator':
+			chrome.tabs.create({url: 'https://www.google.com/search?q=calculator'})
+			break
+		case 'open-clock':
+			chrome.tabs.create({url: 'https://www.google.com/search?q=clock'})
+			break
+		case 'open-calendar':
+			chrome.tabs.create({url: 'https://www.google.com/search?q=calendar'})
+			break
+		case 'open-weather':
+			chrome.tabs.create({url: 'https://www.google.com/search?q=weather'})
+			break
+		case 'open-gmail':
+			chrome.tabs.create({url: 'https://mail.google.com/'})
+			break
+		case 'open-drive':
+			chrome.tabs.create({url: 'https://drive.google.com/'})
+			break
+		case 'open-docs':
+			chrome.tabs.create({url: 'https://docs.google.com/'})
+			break
+		case 'open-sheets':
+			chrome.tabs.create({url: 'https://sheets.google.com/'})
+			break
+		case 'open-slides':
+			chrome.tabs.create({url: 'https://slides.google.com/'})
+			break
+		case 'open-maps':
+			chrome.tabs.create({url: 'https://www.google.com/maps/'})
+			break
+		case 'open-gmail':
+			chrome.tabs.create({url: 'https://mail.google.com/'})
+			break
+		case 'open-drive':
+			chrome.tabs.create({url: 'https://drive.google.com/'})
+			break
+		case 'open-docs':
+			chrome.tabs.create({url: 'https://docs.google.com/'})
+			break
+		case 'open-youtube':
+			chrome.tabs.create({url: 'https://www.youtube.com/'})
+			break
+		case 'open-facebook':
+			chrome.tabs.create({url: 'https://www.facebook.com/'})
+			break
+		case 'open-twitter':
+			chrome.tabs.create({url: 'https://twitter.com/'})
+			break
+		case 'open-instagram':
+			chrome.tabs.create({url: 'https://www.instagram.com/'})
+			break
+		case 'open-linkedin':
+			chrome.tabs.create({url: 'https://www.linkedin.com/'})
+			break
+		case 'open-pinterest':
+			chrome.tabs.create({url: 'https://www.pinterest.com/'})
+			break
+		case 'open-reddit':
+			chrome.tabs.create({url: 'https://www.reddit.com/'})
+			break
+		case 'open-flickr':
+			chrome.tabs.create({url: 'https://www.flickr.com/'})
+			break
+		case 'open-foursquare':
+			chrome.tabs.create({url: 'https://foursquare.com/'})
+			break
+		case 'open-imgur':
+			chrome.tabs.create({url: 'https://imgur.com/'})
+			break
+		case 'buy-me-a-coffee':
+			chrome.tabs.create({url: 'https://www.buymeacoffee.com/'})
+			break
+		case 'link-to-my-linktree':
+			chrome.tabs.create({url: 'https://linktree.io/'})
 	}
 })
 chrome.runtime.onInstalled.addListener((object) => {
-	// clear console log
 	console.clear()
 	set_command_list()
 
@@ -323,7 +421,6 @@ chrome.commands.onCommand.addListener((command) => {
 		})
 	}
 })
-// on tab updated
 chrome.tabs.onCreated.addListener((tab) => set_command_list())
 chrome.tabs.onRemoved.addListener((tabId, changeInfo) => set_command_list())
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => set_command_list())
