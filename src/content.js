@@ -158,22 +158,11 @@ $(document).ready(() => {
 							$(this).show()
 						} else {
 							$(this).hide()
+							// remove hover
+							$(this).removeClass('unite-search-results-hover')
 						}
 					})
 			}
-		})
-		// get the first visible result and add the focus class
-		$('#unite-search-contents').each(function () {
-			// clear all hover classes
-			$(this).children().removeClass('unite-search-results-hover')
-			$(this)
-				.children()
-				.each(function () {
-					if ($(this).css('display') != 'none') {
-						$(this).addClass('unite-search-results-hover')
-						return false
-					}
-				})
 		})
 	}
 	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

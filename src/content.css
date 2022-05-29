@@ -335,7 +335,7 @@
 	align-items: flex-start;
 	padding: 16px;
 	gap: 16px;
-	width: 100%;
+	width: auto;
 	height: fit-content;
 	left: 0px;
 	top: 0px;
