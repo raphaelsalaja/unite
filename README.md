@@ -1,7 +1,7 @@
 <p>
     <h1>Unite</h1>
     <h3>Unites all the functions and actions you would ever need</h3>
-    <p>[](.github/promo_video.gif)</p>
+    ![](.github/promo_video.gif) 
     <h2>Local Installation</h2>
     <ol>
         <li>Download and extract the contents</li>
