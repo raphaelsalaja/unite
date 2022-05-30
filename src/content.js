@@ -8,14 +8,18 @@ $(document).ready(() => {
 	function open_unite() {
 		unite_open = true
 		set_command_list()
+		$('#unite-extension').fadeIn(500)
 		$('#unite-extension').removeClass('unite-hidden')
+
 		$('#unite-extension #unite-search-box').focus()
 		$('#unite-extension #unite-search-box').attr('autocomplete', 'off')
 	}
 	function close_unite() {
 		unite_open = false
-		clear_command_list()
-		$('#unite-extension').addClass('unite-hidden')
+		$('#unite-extension').fadeOut(500, () => {
+			$('#unite-extension').addClass('unite-hidden')
+			clear_command_list()
+		})
 	}
 	function set_command_list() {
 		chrome.runtime.sendMessage({request: 'get-quick-commands'}, (response) => {
@@ -118,7 +122,7 @@ $(document).ready(() => {
 				$unite_search_results_text_container.append($unite_search_results_text_main)
 				$unite_search_results_container.append($unite_search_results_icon_container)
 				$unite_search_results_container.append($unite_search_results_text_container)
-				$unite_search_results_container.append($unite_search_results_shortcut_container)
+				//$unite_search_results_container.append($unite_search_results_shortcut_container)
 				$unite_search_results.append($unite_search_results_container)
 				$('#unite-search-contents').append($unite_search_results)
 			}
@@ -128,6 +132,8 @@ $(document).ready(() => {
 		$('#unite-search-contents').empty()
 	}
 	function hover_result() {
+		$('#unite-search-contents').children().removeClass('unite-search-results-hover')
+
 		$(this).addClass('unite-search-results-hover')
 		$(this).on('mouseout', () => {
 			$(this).removeClass('unite-search-results-hover')
@@ -143,6 +149,7 @@ $(document).ready(() => {
 		close_unite()
 	}
 	function search_results() {
+		$('#unite-search-contents').children().removeClass('unite-search-results-hover')
 		let search_text = $('#unite-search-box').val()
 		$('#unite-search-contents').each(function () {
 			if (search_text == '') {
@@ -155,14 +162,22 @@ $(document).ready(() => {
 						let title = $(this).attr('data-title')
 						let title_lower = title.toLowerCase()
 						if (title_lower.includes(search_text_lower)) {
+							$(this).removeClass('unite-search-results-hover')
 							$(this).show()
 						} else {
 							$(this).hide()
-							// remove hover
 							$(this).removeClass('unite-search-results-hover')
 						}
 					})
 			}
+			$(this)
+				.children()
+				.each(function () {
+					if ($(this).css('display') != 'none') {
+						$(this).addClass('unite-search-results-hover')
+						return false
+					}
+				})
 		})
 	}
 	chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -225,6 +240,10 @@ $(document).ready(() => {
 					next_result.get(0).scrollIntoView({block: 'nearest'})
 				}
 			}
+		}
+		if (e.keyCode == 8) {
+			$('#unite-search-contents').children().removeClass('unite-search-results-hover')
+			$('#unite-search-contents').children().first().addClass('unite-search-results-hover')
 		}
 	})
 })

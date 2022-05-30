@@ -2,10 +2,11 @@ let quick_commands = []
 const set_command_list = () => {
 	get_active_tab().then((response) => {
 		quick_commands = []
+		get_tabs()
 		quick_commands = [
-			{emoji: true, icon: '🚀', title: 'Open in new tab', type: 'Action', description: 'Open the current page in a new tab', shortcut: 'Ctrl + T', action: 'new-tab'},
-			{emoji: true, icon: '🚀', title: 'Open in new window', type: 'Action', description: 'Open the current page in a new window', shortcut: 'Ctrl + W', action: 'new-window'},
-			{emoji: true, icon: '🤫', title: 'Open in incognito window', type: 'Action', description: 'Open the current page in an incognito window', shortcut: 'Ctrl + Shift + W', action: 'incognito-window'},
+			{emoji: true, icon: '🚀', title: 'New tab', type: 'Action', description: 'Open the current page in a new tab', shortcut: 'Ctrl + T', action: 'new-tab'},
+			{emoji: true, icon: '🚀', title: 'New window', type: 'Action', description: 'Open the current page in a new window', shortcut: 'Ctrl + W', action: 'new-window'},
+			{emoji: true, icon: '🤫', title: 'Incognito window', type: 'Action', description: 'Open the current page in an incognito window', shortcut: 'Ctrl + Shift + W', action: 'incognito-window'},
 			{emoji: true, icon: '➡️', title: 'Next Tab', type: 'Action', description: 'Go to the next tab', shortcut: 'Ctrl + Tab', action: 'next-tab'},
 			{emoji: true, icon: '⬅️', title: 'Previous Tab', type: 'Action', description: 'Go to the previous tab', shortcut: 'Ctrl + Shift + Tab', action: 'previous-tab'},
 			{emoji: true, icon: '🗡️', title: 'Close Tab', type: 'Action', description: 'Close the current tab', shortcut: 'Ctrl + W', action: 'close-tab'},
@@ -31,9 +32,9 @@ const set_command_list = () => {
 			{emoji: true, icon: '📈', title: 'Open Calculator', type: 'Tools', description: 'Open the calculator', shortcut: 'Ctrl + Shift + C', action: 'open-calculator'},
 			{emoji: true, icon: '🕰', title: 'Open Clock', type: 'Tools', description: 'Open the clock', shortcut: 'Ctrl + Shift + K', action: 'open-clock'},
 			{emoji: true, icon: '📅', title: 'Open Calendar', type: 'Tools', description: 'Open the calendar', shortcut: 'Ctrl + Shift + K', action: 'open-calendar'},
-			{emoji: true, icon: '🌡️', title: 'Open Weather', type: 'Tools', description: 'Get the weather', shortcut: 'Ctrl + Shift + W', action: 'weather'},
+			{emoji: true, icon: '🌡️', title: 'Open Weather', type: 'Tools', description: 'Get the weather', shortcut: 'Ctrl + Shift + W', action: 'open-weather'},
 			{emoji: true, icon: '📧', title: 'Open Gmail', type: 'Quicklinks', description: 'Open Gmail', shortcut: 'Ctrl + Shift + G', action: 'open-gmail'},
-			{emoji: true, icon: '📰', title: 'Open News', type: 'Quicklinks', description: 'Get the news', shortcut: 'Ctrl + Shift + N', action: 'news'},
+			{emoji: true, icon: '📰', title: 'Open News', type: 'Quicklinks', description: 'Get the news', shortcut: 'Ctrl + Shift + N', action: 'open-news'},
 			{emoji: true, icon: '🗂️', title: 'Open Drive', type: 'Quicklinks', description: 'Open Drive', shortcut: 'Ctrl + Shift + D', action: 'open-drive'},
 			{emoji: true, icon: '📚', title: 'Open Docs', type: 'Quicklinks', description: 'Open Docs', shortcut: 'Ctrl + Shift + O', action: 'open-docs'},
 			{emoji: true, icon: '📋', title: 'Open Sheets', type: 'Quicklinks', description: 'Open Sheets', shortcut: 'Ctrl + Shift + S', action: 'open-sheets'},
@@ -55,7 +56,6 @@ const set_command_list = () => {
 			{emoji: true, icon: '💵', title: 'Buy me a coffee', type: 'Support', description: 'Buy me a coffee', shortcut: 'Ctrl + Shift + B', action: 'buy-me-a-coffee'},
 			{emoji: true, icon: '🔗', title: 'Link to my Linktree', type: 'Support', description: 'Link to my Linktree', shortcut: 'Ctrl + Shift + L', action: 'link-to-my-linktree'},
 		]
-		get_tabs()
 	})
 }
 const get_tabs = () => {
@@ -98,8 +98,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			chrome.tabs.create({url: 'chrome://newtab'})
 			break
 		case 'close-tab':
-			chrome.tabs.getCurrent(function (tab) {
-				chrome.tabs.remove(tab.id, function () {})
+			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+				chrome.tabs.remove(tabs[0].id)
 			})
 			break
 		case 'new-window':
@@ -225,19 +225,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			)
 			break
 		case 'open-settings':
-			chrome.runtime.openOptionsPage()
+			chrome.tabs.create({url: 'chrome://settings/'})
 			break
-		case 'open-dowloands':
-			chrome.downloads.showDefaultFolder()
+		case 'open-downloads':
+			chrome.tabs.create({url: 'chrome://downloads/'})
 			break
 		case 'open-bookmarks':
-			chrome.bookmarks.openTree()
+			chrome.tabs.create({url: 'chrome://bookmarks/'})
 			break
 		case 'open-history':
-			chrome.history.openEntry()
+			chrome.tabs.create({url: 'chrome://history/'})
 			break
 		case 'open-extensions':
-			chrome.management.openExtensions()
+			chrome.tabs.create({url: 'chrome://extensions/'})
 			break
 		case 'reload':
 			chrome.tabs.reload()
@@ -269,7 +269,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 				chrome.tabs.update(tabs[0].id, {pinned: !tabs[0].pinned})
 			})
 			break
-		case 'pin-all':
+		case 'pin-all-tabs':
 			chrome.tabs.query({}, function (tabs) {
 				tabs.forEach(function (tab) {
 					chrome.tabs.update(tab.id, {pinned: !tab.pinned})
@@ -411,12 +411,13 @@ chrome.runtime.onInstalled.addListener((object) => {
 	)
 })
 chrome.commands.onCommand.addListener((command) => {
-	if (command == 'open-unite') {
-		console.log(response.url)
-		get_active_tab().then((response) => {
-			if (!response.url.includes('chrome://') && !response.url.includes('chrome.google.com')) {
-				console.log(response.url)
-				chrome.tabs.sendMessage(response.id, {request: 'open-unite'}, function (response) {})
+	if (command == 'open-unite-extension') {
+		chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+			var url = tabs[0].url
+			// check if the url is from youtube
+			if (url.includes('chrome://') && url.includes('chrome.google.com')) {
+			} else {
+				chrome.tabs.sendMessage(tabs[0].id, {message: 'open-unite'}, function (response) {})
 			}
 		})
 	}
