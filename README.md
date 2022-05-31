@@ -32,3 +32,10 @@
         <li>Enable The Extension</li>
     </ol>
 </p>
+<p>
+    <h2>How to open</h2>
+    <ul>
+        <li>On Windows press: <kbd>Ctrl</kbd> + <kbd>⇧</kbd> + <kbd>U</kbd></li>
+        <li>On MacOS press: <kbd>⌘</kbd> + <kbd>⇧</kbd> + <kbd>U</kbd></li>
+    </ul>
+</p>
