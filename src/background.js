@@ -358,10 +358,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			chrome.tabs.create({url: 'https://imgur.com/'})
 			break
 		case 'buy-me-a-coffee':
-			chrome.tabs.create({url: 'https://www.buymeacoffee.com/'})
+			chrome.tabs.create({url: 'https://www.buymeacoffee.com/rafunderscore'})
 			break
 		case 'link-to-my-linktree':
-			chrome.tabs.create({url: 'https://linktree.io/'})
+			chrome.tabs.create({url: 'https://linktr.ee/raf_underscore'})
+			break
 	}
 })
 chrome.runtime.onInstalled.addListener((object) => {

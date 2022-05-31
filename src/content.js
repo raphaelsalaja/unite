@@ -8,7 +8,6 @@ $(document).ready(() => {
 	function open_unite() {
 		unite_open = true
 		set_command_list()
-		$('#unite-extension').fadeIn(500)
 		$('#unite-extension').removeClass('unite-hidden')
 
 		$('#unite-extension #unite-search-box').focus()
@@ -16,10 +15,8 @@ $(document).ready(() => {
 	}
 	function close_unite() {
 		unite_open = false
-		$('#unite-extension').fadeOut(500, () => {
-			$('#unite-extension').addClass('unite-hidden')
-			clear_command_list()
-		})
+		$('#unite-extension').addClass('unite-hidden')
+		clear_command_list()
 	}
 	function set_command_list() {
 		chrome.runtime.sendMessage({request: 'get-quick-commands'}, (response) => {
@@ -215,30 +212,33 @@ $(document).ready(() => {
 			let current_result = $('#unite-search-contents').children('.unite-search-results-hover')
 			let current_result_index = current_result.index()
 			let next_result = null
-			let visible_results = $('#unite-search-contents')
-				.children()
-				.filter(function () {
-					return $(this).css('display') != 'none'
-				})
-			if (visible_results.length > 1) {
-				if (e.keyCode == 38) {
-					if (current_result_index > 0) {
-						next_result = visible_results.eq(current_result_index - 1)
-					} else {
-						next_result = visible_results.last()
+			let results = $('#unite-search-contents')
+
+			if (e.keyCode == 38) {
+				if (current_result_index > 0) {
+					// next result is the nearest result above that does not have display: none
+					next_result = results.children().eq(current_result_index - 1)
+					while (next_result.css('display') == 'none') {
+						next_result = next_result.prev()
 					}
 				} else {
-					if (current_result_index < visible_results.length - 1) {
-						next_result = visible_results.eq(current_result_index + 1)
-					} else {
-						next_result = visible_results.first()
+					next_result = results.children().last()
+				}
+			} else {
+				if (current_result_index < results.children().length - 1) {
+					// next result is the nearest result below that does not have display: none
+					next_result = results.children().eq(current_result_index + 1)
+					while (next_result.css('display') == 'none') {
+						next_result = next_result.next()
 					}
+				} else {
+					next_result = results.children().first()
 				}
-				if (next_result.length > 0) {
-					next_result.addClass('unite-search-results-hover')
-					current_result.removeClass('unite-search-results-hover')
-					next_result.get(0).scrollIntoView({block: 'nearest'})
-				}
+			}
+			if (next_result.length > 0) {
+				next_result.addClass('unite-search-results-hover')
+				current_result.removeClass('unite-search-results-hover')
+				next_result.get(0).scrollIntoView({block: 'nearest'})
 			}
 		}
 		if (e.keyCode == 8) {

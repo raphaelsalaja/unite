@@ -7,16 +7,16 @@
 	"description": "Unites all the functions and actions you would ever need",
 	"action": {
 		"icons": {
-			"16": "assets/icon.png",
-			"48": "assets/icon.png",
-			"128": "assets/icon.png"
+			"16": "assets/unite-16.png",
+			"48": "assets/unite-48.png",
+			"128": "assets/unite-128.png"
 		},
 		"default_title": "Open Unite"
 	},
 	"icons": {
-		"16": "assets/icon.png",
-		"48": "assets/icon.png",
-		"128": "assets/icon.png"
+		"16": "assets/unite-16.png",
+		"48": "assets/unite-48.png",
+		"128": "assets/unite-128.png"
 	},
 	"background": {
 		"service_worker": "background.js"
@@ -25,8 +25,8 @@
 		{
 			"matches": ["<all_urls>"],
 			"run_at": "document_end",
-			"js": ["libs/jquery.js", "libs/jquery-ui.js", "libs/svg-inject.js", "libs/jquery-easy-autocomplete.js", "content.js"],
-			"css": ["libs/jquery-ui.css", "content.css"]
+			"js": ["libs/jquery.js", "libs/jquery-ui.js", "libs/jquery-confirm.js", "content.js"],
+			"css": ["content.css"]
 		}
 	],
 	"web_accessible_resources": [
