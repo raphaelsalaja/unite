@@ -1,7 +1,7 @@
  <p align="center">
     <img src="https://user-images.githubusercontent.com/52125687/171206755-98c522ea-5180-45ee-bdc5-22f3a9ce0a63.png" /></br> 
 </p>
-<h3 align="center">Why would you used this? 🔎</h3>
+<h3 align="center">Why would you use this? 🔎</h3>
 <p align="center">
     Command bars provide users with easy access to your app's most common tasks. </br> 
     Unite aims to provide this in a clean and accessible interface for all users.
