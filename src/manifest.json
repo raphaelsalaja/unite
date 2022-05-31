@@ -25,7 +25,7 @@
 		{
 			"matches": ["<all_urls>"],
 			"run_at": "document_end",
-			"js": ["libs/jquery.js", "libs/jquery-ui.js", "libs/jquery-confirm.js", "content.js"],
+			"js": ["libs/jquery.js", "libs/jquery-ui.js", "content.js"],
 			"css": ["content.css"]
 		}
 	],
