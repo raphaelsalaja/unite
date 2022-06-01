@@ -213,6 +213,11 @@ $(document).ready(() => {
 			let current_result_index = current_result.index()
 			let next_result = null
 			let results = $('#unite-search-contents')
+			let visible_results = $('#unite-search-contents')
+				.children()
+				.filter(function () {
+					return $(this).css('display') != 'none'
+				})
 
 			if (e.keyCode == 38) {
 				if (current_result_index > 0) {
