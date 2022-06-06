@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/52125687/171206755-98c522ea-5180-45ee-bdc5-22f3a9ce0a63.png" /></br> 
+    <img src="https://user-images.githubusercontent.com/52125687/172231363-3e96a8f9-ce17-45eb-8ab7-03a9ccc1c1d1.png"/></br>
 </p>
 
 ## Why would you use this? 🔎
