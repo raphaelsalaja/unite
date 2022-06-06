@@ -42,4 +42,6 @@ If you find the app useful and want to support me, you can do so by support me o
 
 👉 [Linktree](https://linktr.ee/raf_underscore)
 
-Enjoy the app!
+<h1 align="center">
+    ENJOY THE APP! 😄
+</h1>
