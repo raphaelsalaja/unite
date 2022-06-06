@@ -4,8 +4,8 @@ const set_command_list = () => {
 		quick_commands = []
 		get_tabs()
 		quick_commands = [
-			{emoji: true, icon: '🚀', title: 'New tab', type: 'Action', description: 'Open the current page in a new tab', shortcut: 'Ctrl + T', action: 'new-tab'},
-			{emoji: true, icon: '🚀', title: 'New window', type: 'Action', description: 'Open the current page in a new window', shortcut: 'Ctrl + W', action: 'new-window'},
+			{emoji: true, icon: '🚀', title: 'New tab', type: 'Action', description: 'Open the default page in a new tab', shortcut: 'Ctrl + T', action: 'new-tab'},
+			{emoji: true, icon: '🚀', title: 'New window', type: 'Action', description: 'Open the default page in a new window', shortcut: 'Ctrl + W', action: 'new-window'},
 			{emoji: true, icon: '🤫', title: 'Incognito window', type: 'Action', description: 'Open the current page in an incognito window', shortcut: 'Ctrl + Shift + W', action: 'incognito-window'},
 			{emoji: true, icon: '➡️', title: 'Next Tab', type: 'Action', description: 'Go to the next tab', shortcut: 'Ctrl + Tab', action: 'next-tab'},
 			{emoji: true, icon: '⬅️', title: 'Previous Tab', type: 'Action', description: 'Go to the previous tab', shortcut: 'Ctrl + Shift + Tab', action: 'previous-tab'},
@@ -51,7 +51,7 @@ const set_command_list = () => {
 			{emoji: true, icon: '📌', title: 'Open Foursquare', type: 'Quicklinks', description: 'Open Foursquare', shortcut: 'Ctrl + Shift + Q', action: 'open-foursquare'},
 			{emoji: true, icon: '📷', title: 'Open Imgur', type: 'Quicklinks', description: 'Open Imgur', shortcut: 'Ctrl + Shift + I', action: 'open-imgur'},
 			{emoji: true, icon: '📰', title: 'Open Quora', type: 'Quicklinks', description: 'Open Quora', shortcut: 'Ctrl + Shift + Q', action: 'open-quora'},
-			{emoji: true, icon: '📰', title: 'Open Stackoverflow', type: 'Quicklinks', description: 'Open Stackoverflow', shortcut: 'Ctrl + Shift + S', action: 'open-stackoverflow'},
+			{emoji: true, icon: '📰', title: 'Open Stack Overflow', type: 'Quicklinks', description: 'Open Stackoverflow', shortcut: 'Ctrl + Shift + S', action: 'open-stackoverflow'},
 			{emoji: true, icon: '📦', title: 'Open GitHub', type: 'Quicklinks', description: 'Open GitHub', shortcut: 'Ctrl + Shift + G', action: 'open-github'},
 			{emoji: true, icon: '💵', title: 'Buy me a coffee', type: 'Support', description: 'Buy me a coffee', shortcut: 'Ctrl + Shift + B', action: 'buy-me-a-coffee'},
 			{emoji: true, icon: '🔗', title: 'Link to my Linktree', type: 'Support', description: 'Link to my Linktree', shortcut: 'Ctrl + Shift + L', action: 'link-to-my-linktree'},
@@ -87,7 +87,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 			sendResponse({quick_commands: quick_commands})
 			break
 		case 'switch-tab':
-			// defocus from current tab and focus on new tab
 			chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
 				chrome.tabs.update(tabs[0].id, {active: false})
 				chrome.tabs.update(message.tab.id, {active: true})
@@ -410,6 +409,8 @@ chrome.runtime.onInstalled.addListener((object) => {
 			}
 		}
 	)
+
+	chrome.tabs.create({url: 'https://rafunderscore.vercel.app/unite/'})
 })
 chrome.commands.onCommand.addListener((command) => {
 	if (command == 'open-unite-extension') {

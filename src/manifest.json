@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Unite",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"offline_enabled": true,
 	"author": "raf_",
 	"description": "Unites all the functions and actions you would ever need",
@@ -46,6 +46,6 @@
 			"description": "Open Unite"
 		}
 	},
-	"permissions": ["tabs", "bookmarks", "activeTab", "browsingData", "history", "scripting", "search"],
+	"permissions": ["tabs", "activeTab", "browsingData", "scripting", "search"],
 	"host_permissions": ["https://www.googleapis.com/*", "https://gstatic.com/*", "*://*/*"]
 }
