@@ -2,7 +2,6 @@
 	<img src='https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=348843&theme=dark' alt='Unite - Web&#0032;extension&#0032;for&#0032;quick&#0032;and&#0032;easy&#0032;access&#0032;to&#0032;common&#0032;actions | Product Hunt' width='250' height='54' />
 </a>
 
-
 <p align="center">
     <img src="https://user-images.githubusercontent.com/52125687/172231363-3e96a8f9-ce17-45eb-8ab7-03a9ccc1c1d1.png"/></br>
 </p>
@@ -13,8 +12,6 @@ Command bars provide users with easy access to your app's most common tasks.
 Unite aims to provide this in a clean and accessible interface for all users.
 
 I have also made it free and open source so if you would like to request any more features, or add them in yourself, you can check out the github page. You can also raise issues here for me aswell.
-
-👉 [Github Link](https://github.com/raf-underscore/unite)
 
 ## What can you expect 🤔
 
@@ -44,8 +41,6 @@ Closing the app can be done by either clicking on the background, pressing <kbd>
 ## Support 💌
 
 If you find the app useful and want to support me, you can do so by support me on Product Hunt, giving the repo a star on Github, or by following me on twitter. The links to all can be found below:
-
-👉 [Linktree](https://linktr.ee/raf_underscore)
 
 <h1 align="center">
     ENJOY THE APP! 😄
